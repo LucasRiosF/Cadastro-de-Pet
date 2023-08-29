@@ -78,3 +78,7 @@ input {
     color: white;
     border: none;
 }
+
+#container-lista {
+   flex-direction: column;
+}
