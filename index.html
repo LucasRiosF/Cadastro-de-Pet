@@ -3,9 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel = "stylesheet" href="assets/css/style.index.css">
+    <script src="assets/js/script.index.js"></script>
+    <title>Cadastro</title>
 </head>
 <body>
-    
+    <header>
+       <h1>Clinica Veterinaria</h1>
+    </header>
+
+    <h1>Cadastro de Pet</h1>
+    <label for="input-tutor">Tutor:</label>
+    <input type="text" id="input-tutor" name="input-tutor" name="input">
+
+    <label for="input-nome">Nome do Pet:</label>
+    <input type="text" id="input-nome" name="input-nome" name="input">
+
+    <label for="input-especie">Espécie:</label>
+    <input type="text" id="input-especie" name="input-especie" name="input">
+
+    <label for="input-foto">Foto:</label>
+    <input type="text" id="input-foto" name="input-foto" name="input">
+
+    <label for="input-nascimento">Data de Nascimento:</label>
+    <input type="date" id="input-nascimento" name="input-nascimento" name="input">
+
+    <button id="botao-cadastrar" class="button" onclick="verificaInput()">Cadastrar</button>
+
+
+    <footer>
+        <p>Todos os direitos reservados</p>
+    </footer>
 </body>
 </html>
