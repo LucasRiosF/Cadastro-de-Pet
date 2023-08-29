@@ -36,6 +36,21 @@ class Pet{
         this.especie = especie;
         this.foto = foto;
         this.nascimento = nascimento;
+        this.idade = this.calculaIdade();
+    }
+
+    calculaIdade() {
+        let hoje = new Date();
+        let nascimento = new Date(this.nascimento);
+        let idade = hoje.getFullYear() - nascimento.getFullYear();
+        let mes = hoje.getMonth() - nascimento.getMonth();
+
+        if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+            idade--;
+        }
+        console.log("Passou pelo calculateAge() da class User");
+        return idade;
+        
     }
 }
 
@@ -90,12 +105,12 @@ function renderizarConteudo() {
 
     array.forEach(pet => {
         const petDiv = `
-        <div class='jogoDetalhe'>
+        <div class='petDetalhe'>
                 <p>Tutor: ${pet.tutor}<p>
                 <p>Nome: R$${pet.nome}</p>
                 <p>Espécie: ${pet.especie}</p>
-                <p>Foto: ${pet.foto}</p>
                 <img src="${pet.foto}" alt="${pet.tutor}">
+                <p>Idade: ${pet.idade}</p>
             </div>
        `;
 
