@@ -8,7 +8,6 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
-    flex-wrap: nowrap;
 }
 
 header{
@@ -30,7 +29,6 @@ footer{
 }
 
 #input-container {
-    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -52,16 +50,31 @@ footer{
 
 .sucesso{
     color: green;
-    font-weight: bold;
     text-align: center;
 }
 
 input {
     width: 500px;
-    padding: 8px;
+    padding: 6.5px;
     margin-bottom: 10px;
     background-color: #fff;
     border: 1px solid;
     border-radius: 3px;
     display: flex;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#cadastro{
+    background-color: #1d7044;
+    color: white;
+    border: none;
+}
+
+#execucao{
+    background-color: #1d7044;
+    color: white;
+    border: none;
 }

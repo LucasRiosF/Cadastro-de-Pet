@@ -48,7 +48,7 @@ class Pet{
         if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
             idade--;
         }
-        console.log("Passou pelo calculateAge() da class User");
+        //console.log("Passou pelo calculateAge() da class User");
         return idade;
         
     }
@@ -98,16 +98,16 @@ function limparInput() {
 }
 
 function renderizarConteudo() {
-    const listaHtml = document.getElementById("container-lista");
-    listaHtml.innerHTML = '';
+  const listaHtml = document.getElementById("container-lista");
+   listaHtml.innerHTML = '';
 
     let array = bibliotecaPets.ListaPetsArray;
 
     array.forEach(pet => {
         const petDiv = `
-        <div class='petDetalhe'>
+        <div id='petExibe'>
                 <p>Tutor: ${pet.tutor}<p>
-                <p>Nome: R$${pet.nome}</p>
+                <p>Nome: ${pet.nome}</p>
                 <p>Espécie: ${pet.especie}</p>
                 <img src="${pet.foto}" alt="${pet.tutor}">
                 <p>Idade: ${pet.idade}</p>
@@ -115,5 +115,19 @@ function renderizarConteudo() {
        `;
 
        listaHtml.innerHTML += petDiv;
-    })
+
+    });
+    
+}
+
+function RegistroPets(){
+    document.getElementById("form").classList.remove("hidden");
+    document.getElementById("container-lista").classList.add("hidden");
+    document.getElementById("petExibe").classList.add("hidden");
+}
+
+function ExibicaoPets(){
+    document.getElementById("form").classList.add("hidden");
+    document.getElementById("container-lista").classList.remove("hidden");
+    document.getElementById("petExibe").classList.remove("hidden");
 }
