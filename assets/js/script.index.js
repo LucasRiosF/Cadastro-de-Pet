@@ -59,3 +59,13 @@ class ListaPet {
         this.ListaPetsArray = [];
     }
 }
+
+add(parametro) {
+    if (verificaInput()){
+     Msg("Preencha todos os campos", "erro");
+    } else {
+        this.ListaPetsArray.push(parametro);
+        limparInput();
+        Msg("Cadastro feito com sucesso!", "sucesso");
+    }
+}
