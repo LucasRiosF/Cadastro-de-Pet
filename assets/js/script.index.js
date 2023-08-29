@@ -14,7 +14,7 @@ function verificaInput(){
     }
 }
 
-function mensagem(mensagem, tipo) {
+function mensagens(mensagem, tipo) {
     let mensagemDiv = document.getElementById("mensagem");
     mensagemDiv.innerHTML = "";
 
@@ -29,7 +29,7 @@ function mensagem(mensagem, tipo) {
     }, 4000);
 }
 
-class pet{
+class Pet{
     constructor(tutor, nome, especie, foto, nascimento){
         this.tutor = tutor;
         this.nome = nome;
@@ -58,14 +58,47 @@ class ListaPet {
     constructor(){
         this.ListaPetsArray = [];
     }
+
+    add(parametro) {
+        if (verificaInput()){
+         mensagens("Preencha todos os campos", "erro");
+        } else {
+            this.ListaPetsArray.push(parametro);
+            limparInput();
+            mensagens("Cadastro feito com sucesso!", "sucesso");
+        }
+    }
 }
 
-add(parametro) {
-    if (verificaInput()){
-     Msg("Preencha todos os campos", "erro");
-    } else {
-        this.ListaPetsArray.push(parametro);
-        limparInput();
-        Msg("Cadastro feito com sucesso!", "sucesso");
-    }
+
+const bibliotecaPets = new ListaPet();
+
+function limparInput() {
+    document.getElementById("input-tutor").value = "";
+    document.getElementById("input-nome").value = "";
+    document.getElementById("input-especie").value = "";
+    document.getElementById("input-foto").value = "";
+    document.getElementById("input-nascimento").value = "";
+
+}
+
+function renderizarConteudo() {
+    const listaHtml = document.getElementById("container-lista");
+    listaHtml.innerHTML = '';
+
+    let array = bibliotecaPets.ListaPetsArray;
+
+    array.forEach(pet => {
+        const petDiv = `
+        <div class='jogoDetalhe'>
+                <p>Tutor: ${pet.tutor}<p>
+                <p>Nome: R$${pet.nome}</p>
+                <p>Espécie: ${pet.especie}</p>
+                <p>Foto: ${pet.foto}</p>
+                <img src="${pet.foto}" alt="${pet.tutor}">
+            </div>
+       `;
+
+       listaHtml.innerHTML += petDiv;
+    })
 }
